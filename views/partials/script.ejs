@@ -1,0 +1,31 @@
+<script>
+    const heading = document.getElementById("heading");
+    
+    heading.addEventListener("click", () => {
+        window.location.href = "/";
+    });
+    
+    const headingImg = document.getElementById("headingImg");
+    
+    headingImg.addEventListener("click", () => {
+        window.location.href = "/";
+    });
+</script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const dropdownButton = document.getElementById('dropdownButton');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+
+        dropdownButton.addEventListener('click', () => {
+            dropdownMenu.classList.toggle('show');
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                dropdownMenu.classList.remove('show');
+            }
+        });
+    });
+</script>

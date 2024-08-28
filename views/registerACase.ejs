@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include("./partials/head") %>
+    <title>Register A Case - NaariRaksha</title>
+</head>
+<body>
+    <%- include("./partials/nav") %>
+
+    <div class="max-w-4xl mx-auto font-[sans-serif] p-6">
+        <div class="text-center mb-16">
+          <h4 class="text-gray-800 text-base font-semibold mt-6">Register Your Case</h4>
+        </div>
+  
+        <form action="/registerACase/register" method="post">
+          <div class="grid sm:grid-cols-2 gap-8">
+            <div>
+              <label class="text-gray-800 text-sm mb-2 block">Full Name</label>
+              <input name="name" type="text" class="bg-gray-100 w-full text-gray-800 text-sm px-4 py-3.5 rounded-md focus:bg-transparent outline-pink-100 transition-all" placeholder="Enter Your Name" />
+            </div>
+            <div>
+              <label class="text-gray-800 text-sm mb-2 block">Age</label>
+              <input name="age" type="text" class="bg-gray-100 w-full text-gray-800 text-sm px-4 py-3.5 rounded-md focus:bg-transparent outline-pink-100 transition-all" placeholder="Enter Your Age" />
+            </div>
+            <div>
+              <label class="text-gray-800 text-sm mb-2 block">Gender</label>
+              <input name="gender" type="text" class="bg-gray-100 w-full text-gray-800 text-sm px-4 py-3.5 rounded-md focus:bg-transparent outline-pink-100 transition-all" placeholder="Enter Your Gender" />
+            </div>
+            <div>
+              <label class="text-gray-800 text-sm mb-2 block">Mobile No.</label>
+              <input name="contactNumber" type="number" class="bg-gray-100 w-full text-gray-800 text-sm px-4 py-3.5 rounded-md focus:bg-transparent outline-pink-100 transition-all" placeholder="Enter Your Mobile Number" />
+            </div>
+            <div>
+              <label class="text-gray-800 text-sm mb-2 block">Location</label>
+              <input name="location" type="Location" class="bg-gray-100 w-full text-gray-800 text-sm px-4 py-3.5 rounded-md focus:bg-transparent outline-pink-100 transition-all" placeholder="Enter Your Location" />
+            </div>
+          </div>
+
+          <div class="text-center mb-12">
+            <h4 class="text-gray-800 text-base font-semibold mt-6">Incident Details</h4>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-8">
+            <div>
+              <label class="text-gray-800 text-sm mb-2 block">Type Of Incident</label>
+              <input name="typeOfIncident" type="text" class="bg-gray-100 w-full text-gray-800 text-sm px-4 py-3.5 rounded-md focus:bg-transparent outline-pink-100 transition-all" placeholder="Harassment, Abuse, Stalking, etc" />
+            </div>
+            <div>
+              <label class="text-gray-800 text-sm mb-2 block">Date and Time</label>
+              <input name="dateAndTime" type="text" class="bg-gray-100 w-full text-gray-800 text-sm px-4 py-3.5 rounded-md focus:bg-transparent outline-pink-100 transition-all" placeholder="5:30pm 01-04-2024" />
+            </div>
+            <div>
+              <label class="text-gray-800 text-sm mb-2 block">Location</label>
+              <input name="locationOfIncident" type="text" class="bg-gray-100 w-full text-gray-800 text-sm px-4 py-3.5 rounded-md focus:bg-transparent outline-pink-100 transition-all" placeholder="Enter The Location of Incident" />
+            </div>
+            <div>
+              <label class="text-gray-800 text-sm mb-2 block">Description</label>
+              <textarea name="description" type="number" class="bg-gray-100 w-full text-gray-800 text-sm px-4 py-3.5 rounded-md focus:bg-transparent outline-pink-100 transition-all" placeholder="Enter The Description" ></textarea>
+            </div>
+          </div>
+  
+          <div class="!mt-12">
+            <button type="submit" class="py-3.5 px-7 text-sm font-semibold tracking-wider rounded-md text-white bg-pink-400 hover:bg-pink-600 focus:outline-none">
+              Register
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <%- include("./partials/footer") %>
+      <%- include("./partials/script") %>
+
+</body>
+</html>
