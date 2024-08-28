@@ -41,7 +41,7 @@ const complaintSchema = new Schema({
         type: Boolean,
         // required: true,
     },
-});
+}, { timestamps: true });
 
 const Complaint = model("complaint", complaintSchema);
 

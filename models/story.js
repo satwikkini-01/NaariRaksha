@@ -9,7 +9,7 @@ const storySchema = new Schema({
         type: String,
         required: true,
     },
-});
+}, { timestamps: true });
 
 const Story = model("story", storySchema);
 
