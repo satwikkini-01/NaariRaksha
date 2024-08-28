@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include("./partials/head") %>
+    <title>Feedback - NaariRaksha</title>
+</head>
+<body>
+    <%- include("./partials/nav") %>
+
+
+    <div class="flex justify-end p-4">
+        <% if (locals.postMsg) { %>
+         <h1 class="m-auto"><%= postMsg %></h1>
+        <% } %>
+    </div>
+
+    <div class="max-w-4xl mx-auto font-[sans-serif] p-6">
+        <div class="text-center mb-16">
+          <h4 class="text-gray-800 text-base font-semibold mt-6">Provide Your Feedback</h4>
+        </div>
+  
+        <form action="/community/feedback" method="post">
+          <div class="grid sm:grid-cols-2 gap-8">
+            <div>
+              <label class="text-gray-800 text-sm mb-2 block">Name</label>
+              <input name="name" type="text" class="bg-gray-100 w-full text-gray-800 text-sm px-4 py-3.5 rounded-md focus:bg-transparent outline-pink-100 transition-all" placeholder="Leave Blank To Keep Anonymous" />
+            </div>
+        </div>
+        <div>
+          <label class="text-gray-800 text-sm block mt-8 mb-2">Feedback</label>
+          <textarea name="feedback" type="text" class="h-60 bg-gray-100 w-full text-gray-800 text-sm px-4 py-3.5 rounded-md focus:bg-transparent outline-pink-100 transition-all" placeholder="Write Your Story" ></textarea>
+        </div>
+  
+          <div class="!mt-8">
+            <button type="submit" class="py-3.5 px-7 text-sm font-semibold tracking-wider rounded-md text-white bg-pink-400 hover:bg-pink-600 focus:outline-none">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <%- include("./partials/footer") %>
+      <%- include("./partials/script") %>
+</body>
+</html>
