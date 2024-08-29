@@ -3,6 +3,8 @@
 **Empowering women through safety and support.**  
 A community-driven platform that provides comprehensive resources, advocacy, and a safe space for women to share their stories, connect, and find support.
 
+**Hosted on**: [NaariRaksha](https://naari-raksha.vercel.app/)
+
 ## 🌟 Features
 
 - **Feel Support**  
