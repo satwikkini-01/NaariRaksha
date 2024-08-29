@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%- include("./partials/head") %>
+    <title>Location Based Safety - NaariRaksha</title>
+  </head>
+  <body>
+    <%- include("./partials/nav") %>
+
+    <div id="map" class="h-screen -z-50"></div>
+
+
+    <%- include("./partials/footer") %>
+    <%- include("./partials/script") %>
+    <script>
+        var map = L.map('map').setView([20.5937, 78.9629], 5);
+    
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+    
+        function fetchSafetyLocations(lat, lon) {
+          var queries = [
+            `node["amenity"="police"](around:1000,${lat},${lon});`,
+            `node["amenity"="hospital"](around:1000,${lat},${lon});`,
+            `node["amenity"="shelter"](around:1000,${lat},${lon});`
+          ];
+    
+          queries.forEach(function(query) {
+            var url = `https://overpass-api.de/api/interpreter?data=[out:json];(${query});out body;`;
+    
+            fetch(url)
+              .then(response => response.json())
+              .then(data => {
+                data.elements.forEach(function(location) {
+                  var type = location.tags["amenity"] || "unknown";
+                  var popupText = `${type.charAt(0).toUpperCase() + type.slice(1)}`;
+    
+                  L.marker([location.lat, location.lon])
+                    .addTo(map)
+                    .bindPopup(popupText)
+                    .openPopup();
+                });
+              })
+              .catch(error => console.error('Error fetching safety locations:', error));
+          });
+        }
+    
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var lat = position.coords.latitude;
+            var lon = position.coords.longitude;
+
+            map.setView([lat, lon], 13);
+
+            fetchSafetyLocations(lat, lon);
+          }, function(error) {
+            console.error('Error getting location:', error);
+          });
+        } else {
+          console.error('Geolocation is not supported by this browser.');
+        }
+      </script>
+  </body>
+</html>

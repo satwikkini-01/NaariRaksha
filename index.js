@@ -8,6 +8,7 @@ const helplineRouter = require("./routes/helpline");
 const registerACaseRouter = require("./routes/registerACase");
 const safetyRouter = require("./routes/safety");
 const communityRouter = require("./routes/community");
+const locationRouter = require("./routes/location");
 
 const app = express();
 const PORT = process.env.PORT;
@@ -30,6 +31,7 @@ app.use("/helpline", helplineRouter);
 app.use("/registerACase", registerACaseRouter);
 app.use("/safety", safetyRouter);
 app.use("/community", communityRouter);
+app.use("/location", locationRouter);
 
 app.listen(PORT, () => {
   console.log(`Server Running on PORT: ${PORT}`);
