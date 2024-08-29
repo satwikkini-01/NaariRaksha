@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
-    "build-tail": "tailwindcss build -i ./public/static/tailwindcss.css -o ./public/static/styles.css"
-  },
+  "start": "node index.js",
+  "build": "npm run build-tail",
+  "build-tail": "tailwindcss build -i ./public/static/tailwindcss.css -o ./public/static/styles.css"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
