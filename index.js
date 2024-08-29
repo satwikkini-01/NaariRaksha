@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
+const bodyParser = require('body-parser');
 require("dotenv").config();
 
 const staticRouter = require("./routes/staticRoute");
@@ -9,6 +10,7 @@ const registerACaseRouter = require("./routes/registerACase");
 const safetyRouter = require("./routes/safety");
 const communityRouter = require("./routes/community");
 const locationRouter = require("./routes/location");
+const donateRouter = require("./routes/donate");
 
 const app = express();
 const PORT = process.env.PORT;
@@ -25,6 +27,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.set("view engine", "ejs");
 app.set("views", path.resolve("./views"));
+app.use(bodyParser.json());
 
 app.use("/", staticRouter);
 app.use("/helpline", helplineRouter);
@@ -32,6 +35,7 @@ app.use("/registerACase", registerACaseRouter);
 app.use("/safety", safetyRouter);
 app.use("/community", communityRouter);
 app.use("/location", locationRouter);
+app.use("/donate", donateRouter);
 
 app.listen(PORT, () => {
   console.log(`Server Running on PORT: ${PORT}`);
